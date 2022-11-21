@@ -1,0 +1,47 @@
+<div class="matrix">
+  <div class="clothes">
+    <div class="header__description">
+      <div class="services__name">
+        <span class="name title">Ropa</span>
+      </div>
+    </div>
+    <div class="clothes__wrapper">
+      <div
+        *ngFor="let clothe of selectedClothes; let i = index"
+        appClotheHeight
+        [materials]="clotheLength[i]"
+        [collapse]="showMaterials[i]"
+        class="content__clothe"
+        (click)="toggleMaterials(i)"
+      >
+        {{ clothe.name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="services">
+    <div class="header__services">
+      <div class="services__name">
+        <span class="name">Materiales</span>
+      </div>
+      <div
+        *ngFor="let service of selectedServices; let i = index"
+        class="services__name"
+      >
+        <span appClotheHeight class="name">{{ service.name }}</span>
+      </div>
+    </div>
+    <div class="matrix__content">
+      <app-clothes-row
+        *ngFor="let item of selectedClothes; let i = index"
+        [selectedServices]="selectedServices"
+        [clothe]="item"
+        [allMaterials$]="allMaterials$"
+        [index]="i"
+        [toggleMaterials]="showMaterials[i]"
+        (pricesMiniArray)="outputData($event)"
+        (materialsArrayLenght)="receiveMaterialsLenght($event)"
+      ></app-clothes-row>
+    </div>
+  </div>
+</div>

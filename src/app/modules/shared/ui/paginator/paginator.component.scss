@@ -1,0 +1,27 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.arrow {
+  color: black;
+  cursor: pointer;
+}
+
+.arrow--inverted {
+  transform: rotateY(180deg);
+}
+
+.text {
+  margin-right: 5px;
+}
+
+.pages-info {
+  padding: 0 12px;
+}

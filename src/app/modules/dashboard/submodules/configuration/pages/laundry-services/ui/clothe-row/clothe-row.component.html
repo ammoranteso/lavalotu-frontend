@@ -1,0 +1,14 @@
+<div class="content">
+  <ng-container *ngIf="selectedMaterials.length > 0 && toggleMaterials">
+    <div *ngFor="let material of selectedMaterials" class="content__row">
+      <app-material-service-price
+        [materialName]="material.name"
+        [idClothe]="clothe.id"
+        [idMaterial]="material.id"
+        [services]="selectedServices"
+        (pricesMiniArray)="outputData($event)"
+      ></app-material-service-price>
+    </div>
+  </ng-container>
+  <button (click)="showMaterials()">+</button>
+</div>

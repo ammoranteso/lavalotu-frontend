@@ -1,0 +1,88 @@
+<div class="container-main">
+
+  <div class="header-container hlp__flex">
+    <div class="filter-container hlp__flex">
+      <div class="search-container">
+        <app-search-input
+          (queryChange)="onQueryChange($event)"
+          placeholder="Buscar empleado por nombre"></app-search-input>
+
+      </div>
+
+      <div class="selector-container">
+        <ngsl-select
+          class="blue-selector"
+          [options]="datesOptions"
+          placeholder="Fecha ingreso">
+          <ng-template #icon>
+            <span class="material-icons container-today__select__icon">
+            arrow_drop_down
+          </span>
+          </ng-template>
+          <ng-template
+            #option
+            let-option
+            let-isActive="active"
+            let-isSelected="selected">
+            <div
+              class="my-awesome-option"
+              [class.active-option]="isActive"
+              [class.selected-option]="isSelected">
+              {{ option.label }}
+            </div>
+          </ng-template>
+        </ngsl-select>
+
+      </div>
+
+    </div>
+
+    <div class="button-container hlp__flex">
+
+      <button
+        class="btn-general btn--primary btn--custom hlp__flex"
+        routerLink="new">
+        <img
+          class="user-icon"
+          src="assets/images/user-icon.png"
+          alt="user-icon">
+        Nuevo empleado
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="body-container">
+    <table class="employees-table">
+      <thead class="employee-thead">
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Cargo</th>
+        <th>Sede</th>
+        <th>Teléfono</th>
+      </thead>
+
+    </table>
+
+    <ng-container *ngslAsyncHandler="employeeObs$ | async as employees;">
+
+      <app-row-info
+        *ngFor="let employee of employees; let i = index"
+        [hideKeys]="true"
+        [info]="employee.employeeDic">
+      </app-row-info>
+    </ng-container>
+
+  </div>
+
+  <div class="pagination-container">
+
+    <app-paginator
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (prevPage)="onPrevPage()"
+      (nextPage)="onNextPage()"></app-paginator>
+  </div>
+
+</div>

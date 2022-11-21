@@ -1,0 +1,35 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.field-form__wrapper {
+  padding: 10px 0;
+  position: relative;
+}
+
+.title {
+  color: $input-label-grey;
+  position: absolute;
+  font-family: $font-Open-Sans-Regular;
+  font-size: 12px;
+  top: -18%;
+  left: 0%;
+}
+
+.field-input {
+  width: 420px;
+  height: 37px;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  opacity: 1;
+  font-family: $font-Open-Sans-Regular;
+  font-size: 16px;
+  padding: 15px;
+}
+
+//Without arrows for numbers
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

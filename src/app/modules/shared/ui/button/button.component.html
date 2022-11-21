@@ -1,0 +1,18 @@
+<button
+  [type]="type ? type : 'button'"
+  [disabled]="disabled"
+  [class.button-primary]="color === 'primary'"
+  [class.button-cancel]="color === 'cancel'"
+  [class.button-secondary]="color === 'secondary'"
+  [class.button-help]="color === 'help'"
+  [class.button--full]="full"
+  [class.button--simple]="!icon"
+  [class.hide-mobile]="hideTextMobile"
+  class="button">
+  <span
+    *ngIf="icon"
+    class="icon icon-{{ icon }}"></span>
+  <span class="button__text">
+    {{ text }}
+  </span>
+</button>

@@ -1,0 +1,75 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.matrix {
+  display: flex;
+  width: 100%;
+
+  .clothes {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+
+  .services {
+    width: 80%;
+    overflow: auto;
+    position: relative;
+    white-space: nowrap;
+  }
+}
+
+.content__clothe {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  background-color: $light_blue;
+  color: $darker-blue;
+  font-family: $font-Open-Sans-Bold;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.header__text {
+  font-family: $font-Poppins-Regular;
+  color: $input-label-grey;
+  font-size: 14px;
+  width: 100%;
+  padding: 0 2%;
+  min-height: 40px;
+  text-align: center;
+  line-height: 1.1;
+  display: inline-block;
+  position: relative;
+}
+
+.services__name {
+  width: 140px;
+  position: relative;
+  display: inline-block;
+  height: 40px;
+
+  .name {
+    position: absolute;
+    top: 50%;
+    white-space: normal;
+    @include transform(translateY(-50%));
+    margin: 0 auto;
+    width: 80%;
+    left: 0;
+    right: 0;
+    font-family: $font-Open-Sans-Bold;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .title {
+    font-family: $font-Poppins-Regular;
+    color: $input-label-grey;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="field-form__wrapper">
+  <div class="title" [ngStyle]="labelStyle">{{ label }}</div>
+  <input
+    class="field-input"
+    [type]="type"
+    [formControl]="fControl"
+    [class.is-invalid]="controlHasError"
+    [ngStyle]="inputStyle"
+    matInput
+  />
+  <mat-error *ngIf="controlHasError">{{ controlErrorMessage }}</mat-error>
+</div>

@@ -1,0 +1,59 @@
+@import "__settings-dir.scss";
+@import "__tools-dir.scss";
+
+.header-container {
+  padding: 45px 80px 0;
+}
+
+.filter-container {
+  width: 50%;
+}
+
+.selector-container {
+  margin: auto 30px;
+}
+
+.search-container {
+  width: 335px;
+}
+
+.button-container {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.btn--custom {
+  width: 150px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  padding-right: 5px;
+}
+
+.body-container {
+  margin-top: 41px;
+  padding: 0px 80px;
+}
+
+.employees-table {
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.employee-thead {
+  width: 260px;
+  color: $input-label-grey;
+  th {
+    width: 251px;
+  }
+}
+
+.pagination-container {
+  margin-top: 30px;
+}

@@ -1,0 +1,42 @@
+<!-- Ignore, this will change -->
+<div class="login__container">
+  <div class="form__container">
+    <h1 class="login__title">Ingreso</h1>
+    <form
+      class="login__form"
+      (ngSubmit)="login(loginForm.value)"
+      [formGroup]="loginForm"
+    >
+      <app-input
+        color="secondary"
+        type="email"
+        id="email-input"
+        [label]="'Correo'"
+        [fControl]="loginForm.controls.email"
+      >
+      </app-input>
+      <div class="login__divisor"></div>
+      <app-input
+        color="secondary"
+        type="password"
+        id="password-input"
+        [label]="'Contraseña'"
+        [fControl]="loginForm.controls.password"
+      ></app-input>
+      <div class="button__divisor"></div>
+      <app-button
+        color="secondary"
+        type="submit"
+        id="submit-button"
+        [disabled]="!loginForm.valid"
+        [text]="'Ingresar'"
+      >
+      </app-button>
+    </form>
+    <a>Olvidé la contraseña</a>
+    <a>Olvidé el correo</a>
+  </div>
+  <div class="logo__container">
+    <img src="assets/images/LavaloTuLogo.svg" class="logo__image" alt="logo" />
+  </div>
+</div>

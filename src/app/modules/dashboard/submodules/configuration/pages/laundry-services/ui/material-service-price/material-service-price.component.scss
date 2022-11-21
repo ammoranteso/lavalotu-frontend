@@ -1,0 +1,35 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.row__input,
+.material__name {
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  border: $light-grey solid 1px;
+  border-radius: 2px;
+  font-family: $font-Open-Sans-Regular;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 5px 0 5px;
+  position: relative;
+}
+
+.row__input:first-child {
+  margin-left: 10px;
+}
+
+.name {
+  position: absolute;
+  top: 50%;
+  white-space: normal;
+  @include transform(translateY(-50%));
+  margin: 0 auto;
+  width: 80%;
+  left: 0;
+  right: 0;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.1;
+}

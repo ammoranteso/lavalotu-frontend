@@ -1,0 +1,15 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.modal {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  .modal__inputs {
+    @include flexbox();
+  }
+  .modal__actions {
+    width: 50%;
+    margin-top: 25px;
+  }
+}

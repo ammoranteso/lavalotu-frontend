@@ -1,0 +1,64 @@
+<div class="create-establishment">
+  <h1 class="create-establishment__title">Registro lavandería</h1>
+  <form
+    class="create-establishment__form"
+    [formGroup]="createEstablishmentForm"
+    (ngSubmit)="createEstablishment(createEstablishmentForm.value)"
+  >
+    <app-form-control
+      type="text"
+      label="Nombre lavandería"
+      [fControl]="createEstablishmentForm.get('establishmentName')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <!-- <app-form-control
+      label="Nit"
+      [fControl]="createEstablishmentForm.get('organizationNit')!"
+    ></app-form-control>
+    <div class="form__divider"></div> -->
+    <app-form-control
+      label="Teléfono 1"
+      [fControl]="createEstablishmentForm.get('phoneNumber')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <app-form-control
+      label="Teléfono 2"
+      [fControl]="createEstablishmentForm.get('optionalPhoneNumber')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <!-- <app-form-control
+      color="primary"
+      type="text"
+      matInput
+      [label]="'Ciudad'"
+      [fControl]="createEstablishmentForm.controls.city"
+    ></app-form-control> -->
+    <!-- <div class="form__divider"></div> -->
+    <app-form-control
+      label="Correo electrónico"
+      [fControl]="createEstablishmentForm.get('email')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <app-form-control
+      label="Barrio"
+      [fControl]="createEstablishmentForm.get('neighborhood')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <app-form-control
+      label="Dirección"
+      [fControl]="createEstablishmentForm.get('address')!"
+    ></app-form-control>
+    <div class="form__divider"></div>
+    <div class="map">MAPA</div>
+    <div class="form__divider"></div>
+    <div class="create-establishment__actions">
+      <app-button
+        color="primary"
+        type="submit"
+        [disabled]="!createEstablishmentForm.valid"
+        [text]="'Siguiente'"
+      >
+      </app-button>
+    </div>
+  </form>
+</div>

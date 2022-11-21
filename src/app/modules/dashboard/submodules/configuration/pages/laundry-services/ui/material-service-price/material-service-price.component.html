@@ -1,0 +1,17 @@
+<div class="inputs-container">
+  <div class="material__name">
+    <span class="name">{{ materialName }}</span>
+  </div>
+
+  <ng-container
+    *ngFor="let clothePrice of clotheSpecificPrices.controls; index as i"
+    [formGroup]="getControlsAtIndex(i)"
+  >
+    <input
+      appCurrencyInput
+      formControlName="price"
+      (change)="getValueAtIndex(i)"
+      class="row__input"
+    />
+  </ng-container>
+</div>

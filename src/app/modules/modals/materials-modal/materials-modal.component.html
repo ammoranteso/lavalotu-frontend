@@ -1,0 +1,23 @@
+<ng-template #loadingTemplate> Some data it's being fetched </ng-template>
+
+<ng-template #errorTemplate> Something wrong happened </ng-template>
+
+<div
+  class="materials"
+  *ngslAsyncHandler="
+    materials$ | async as materials;
+    useLoading: loadingTemplate;
+    useError: errorTemplate
+  "
+>
+  <div class="materials__title">(!) Quita o agrega los materiales</div>
+  <label class="materials__item" *ngFor="let material of materials.payload"
+    ><input
+      value="{{ material.name }}"
+      type="checkbox"
+      (change)="addItemToArray(material, selectedMaterialsAux)"
+      [checked]="selectedMaterialsAux.indexOf(material) !== -1"
+    />{{ material.name }}</label
+  >
+  <button class="materials__button" (click)="confirmPicks()">ACEPTAR</button>
+</div>

@@ -1,0 +1,19 @@
+@import "__tools-dir";
+@import "__settings-dir";
+
+.search-bill__container {
+  width: 100%;
+  text-align: center;
+  .search-bill__input {
+    width: 30%;
+    margin: 60px 0;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    &::placeholder {
+      font-size: 18px;
+      color: lighten($provisional-grey, 25);
+    }
+  }
+}

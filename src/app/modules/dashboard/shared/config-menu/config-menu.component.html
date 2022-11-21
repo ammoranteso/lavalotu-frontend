@@ -1,0 +1,44 @@
+<div
+  class="menu__container"
+  @hamburgerEffect
+  *ngIf="visible">
+  <li class="options">
+    <ul class="box"><a
+        class="menu__link"
+        (click)="closeMenu()">
+        Mi lavandería
+      </a>
+    </ul>
+
+    <ul class="box"><a
+        class="menu__link"
+        (click)="closeMenu()">
+        Escritura rápida y abreviaturas
+      </a>
+    </ul>
+
+    <ul class="box"><a
+        class="menu__link"
+        (click)="closeMenu()"
+        routerLink="configuration/services">
+        Prendas y servicios
+      </a>
+    </ul>
+    <ul
+      class="box"
+      (click)="closeMenu()"><a class="menu__link">Términos y condiciones</a>
+    </ul>
+    <ul class="box"><a
+        class="menu__link"
+        (click)="closeMenu()">
+        Cambiar lavandería
+      </a>
+    </ul>
+    <ul class="box"><a
+        class="menu__link"
+        (click)="logOut()">
+        Cerrar sesión
+      </a>
+    </ul>
+  </li>
+</div>

@@ -1,0 +1,22 @@
+<div class="navbar">
+  <img
+    class="navbar__brand"
+    src="/assets/images/navbar-brand.svg">
+  <h1
+    *ngFor="let item of menuItems"
+    class="navbar__link"
+    [routerLink]="item.url"
+    routerLinkActive="navbar__link--active">
+    {{ item.name }}
+  </h1>
+  <button
+    class="menu-btn"
+    (click)="toggleMenu()"
+    [ngClass]="{'menu-btn__burger': !showMenu,
+                  'menu-btn__open': showMenu}">
+    <div class="menu-btn__burger"></div>
+  </button>
+  <app-config-menu
+    [visible]="showMenu"
+    (setAnimation)="listen($event)"></app-config-menu>
+</div>

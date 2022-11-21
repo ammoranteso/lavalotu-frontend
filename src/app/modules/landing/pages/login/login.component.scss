@@ -1,0 +1,78 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+$animation-delay: 1s;
+
+.login__container {
+  @include flexbox();
+  position: relative;
+}
+
+.form__container {
+  opacity: 0;
+  width: 30%;
+  min-height: 100vh;
+  background-image: linear-gradient($dark-blue, $darker-blue);
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-direction(column);
+  animation: formSpawn 1s $animation-delay ease-in-out forwards;
+  .login__title {
+    font-family: $font-Poppins-SemiBold;
+    color: white;
+  }
+  .login__form {
+    width: 50%;
+    padding: 50px 0;
+    text-align: center;
+    .login__divisor {
+      margin: 40px 0;
+    }
+    .button__divisor {
+      margin: 50px 0;
+    }
+  }
+}
+
+.logo__container {
+  width: 70%;
+  min-height: 100vh;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  .logo__image {
+    width: 35%;
+    transform: translateX(-60%) translateY(10%);
+    animation: logoMovement 0.7s $animation-delay ease-in-out forwards;
+  }
+}
+
+//TODO: Delete after, just for good looking
+a {
+  color: white;
+  font-family: $font-Open-Sans-Regular;
+  font-size: 16px;
+  text-decoration: underline;
+  margin: 10px 0;
+}
+
+//Animations
+
+@keyframes logoMovement {
+  0% {
+    transform: translateX(-60%) translateY(10%);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes formSpawn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

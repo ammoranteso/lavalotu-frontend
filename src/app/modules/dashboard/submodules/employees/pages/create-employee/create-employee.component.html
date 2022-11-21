@@ -1,0 +1,161 @@
+<div class="container-form">
+
+  <form
+    [formGroup]="employeeForm"
+    (ngSubmit)="onSubmit()">
+
+    <div class="form-title">Registro nuevo empleado</div>
+
+    <div class="container__info-section">
+      <h3 class="titles-container">Información personal</h3>
+      <div class="personal__info hlp__flex">
+        <app-form-control
+          class="input-custom__flex"
+          [inputStyle]="ngStyle"
+          [fControl]="employeeForm.get('name')!"
+          label="Nombre">
+        </app-form-control>
+
+        <div class="input-fixed">
+          <app-form-control
+            class="input-custom__flex"
+            [inputStyle]="ngStyle"
+            [fControl]="employeeForm.get('surname')!"
+            label="Apellido">
+          </app-form-control>
+        </div>
+      </div>
+
+      <div class="spacing-container">
+        <app-form-control
+          label="Número documento de identidad"
+          type="number"
+          [fControl]="employeeForm.get('document')!">
+        </app-form-control>
+      </div>
+    </div>
+
+    <div class="container__info-section">
+      <h3 class="titles-container">Contacto</h3>
+
+      <div class="contact__info hlp__flex">
+        <app-form-control
+          label="Teléfono"
+          [inputStyle]="ngStyle"
+          type="number"
+          [fControl]="employeeForm.get('phoneNumber')!">
+        </app-form-control>
+
+        <div class="input-fixed">
+          <app-form-control
+            label="Dirección"
+            [inputStyle]="ngStyle"
+            type="text"
+            [fControl]="employeeForm.get('address')!">
+          </app-form-control>
+        </div>
+
+      </div>
+      <div class="spacing-container">
+        <app-form-control
+          label="Correo electrónico"
+          type="email"
+          [fControl]="employeeForm.get('email')!">
+        </app-form-control>
+      </div>
+
+    </div>
+
+    <div class="container__info-section">
+      <h3 class="titles-container">Cargo laboral</h3>
+
+      <div class="job__info hlp__flex">
+        <div class="role-container hlp__flex">
+          <div class="label-job__container">
+            <h4 class="title">Rol que va a desempeñar</h4>
+            <ngsl-select
+              class="form-input__selector"
+              [options]="(pickRole$ | async ) || []"
+              placeholder="Escoge el cargo"
+              formControlName="role">
+              <ng-template #icon>
+                <span class="material-icons container-document__select__icon">
+                  arrow_drop_down
+                </span>
+              </ng-template>
+
+              <ng-template
+                #option
+                let-option
+                let-isActive="active"
+                let-isSelected="selected">
+                <div
+                  class="my-awesome-option"
+                  [class.active-option]="isActive"
+                  [class.selected-option]="isSelected">
+                  {{ option }}
+                </div>
+              </ng-template>
+            </ngsl-select>
+          </div>
+        </div>
+
+        <app-form-control
+          [inputStyle]="ngStyle"
+          label="Fecha de ingreso"
+          type="date"
+          [fControl]="employeeForm.get('entryDate')!">
+        </app-form-control>
+
+      </div>
+
+      <div class="establishment-container">
+        <h4 class="title">Lavandería a la que se vincula</h4>
+        <ngsl-select
+          class="form-input__selector"
+          [options]="(pickEstablishments$ | async ) || []"
+          placeholder="Lavandería"
+          formControlName="establishmentId">
+          <ng-template #icon>
+            <span class="material-icons container-document__select__icon">
+              arrow_drop_down
+            </span>
+          </ng-template>
+
+          <ng-template
+            #option
+            let-option
+            let-isActive="active"
+            let-isSelected="selected">
+            <div
+              class="my-awesome-option"
+              [class.active-option]="isActive"
+              [class.selected-option]="isSelected">
+              {{ option.label }}
+            </div>
+          </ng-template>
+        </ngsl-select>
+      </div>
+
+    </div>
+
+    <div class="spacing-container">
+      <app-form-control
+        label="Contraseña"
+        patternMsg="La contraseña debe tener entre 8 y 10 caracteres y puede incluir letras (de la A a la Z, mayúsculas o minúsculas), números y un carácter especial"
+        type="password"
+        [fControl]="employeeForm.get('password')!">
+      </app-form-control>
+    </div>
+
+    <div class="btn-custom">
+      <button
+        class="btn-general btn--primary btn--custom"
+        type="submit"
+        [disabled]="!employeeForm.valid">
+        Agregar Empleado
+      </button>
+    </div>
+
+  </form>
+</div>

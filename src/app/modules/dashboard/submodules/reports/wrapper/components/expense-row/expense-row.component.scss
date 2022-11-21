@@ -1,0 +1,27 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.expense {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 5px 0;
+  font-family: $font-Open-Sans-Regular;
+  font-size: 12px;
+  .expense__name {
+    width: 35%;
+    margin-right: 10px;
+  }
+  .expense__date {
+    color: $input-label-grey;
+    width: 40%;
+    margin-right: 10px;
+  }
+  .expense__value {
+    width: 18%;
+  }
+}

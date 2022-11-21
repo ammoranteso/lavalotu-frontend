@@ -1,0 +1,45 @@
+<div class="new-client">
+  <form
+    class="new-client__form"
+    [formGroup]="createClientForm"
+    (ngSubmit)="createClient(createClientForm.value)"
+  >
+    <h1 class="form__title">Registro nuevo cliente</h1>
+    <app-form-control
+      label="'Nombres y apellidos'"
+      [fControl]="createClientForm.get('name')!"
+      class="input-custom__flex"
+      [inputStyle]="ngStyle"
+    >
+    </app-form-control>
+    <app-form-control
+      label="'Numero documento de identidad'"
+      [fControl]="createClientForm.get('documentNumber')!"
+    >
+    </app-form-control>
+    <app-form-control
+      label="'Teléfono'"
+      [fControl]="createClientForm.get('phoneNumber')!"
+    >
+    </app-form-control>
+    <app-form-control
+      label="'Correo electrónico'"
+      [fControl]="createClientForm.get('email')!"
+    >
+    </app-form-control>
+    <app-form-control
+      label="'Dirección'"
+      [fControl]="createClientForm.get('address')!"
+    >
+    </app-form-control>
+    <div class="form__actions">
+      <app-button
+        color="primary"
+        type="submit"
+        [disabled]="!createClientForm.valid"
+        [text]="'Agregar cliente'"
+      >
+      </app-button>
+    </div>
+  </form>
+</div>

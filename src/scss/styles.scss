@@ -1,0 +1,55 @@
+@import "__settings-dir";
+@import "__tools-dir";
+@import "generic/common";
+@import "elements/common";
+@import "objects/common";
+@import "components/_components-dir";
+@import "utilities/common";
+
+// Global styles
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Open-Sans-Bold", "sans-serif";
+}
+// Chrome pls
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
+.app-modal {
+  max-width: 40% !important;
+  .mat-dialog-container {
+    background-color: white;
+    box-shadow: none;
+  }
+  &.transparent {
+    .mat-dialog-container {
+      background-color: transparent;
+    }
+  }
+}
+
+.app-modal-transparent {
+  max-width: 40% !important;
+  .mat-dialog-container {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.cdk-overlay-backdrop {
+  &.cdk-overlay-dark-backdrop {
+    &.cdk-overlay-backdrop-showing {
+      //margin-top: 15vh;
+      background: rgba(0, 32, 90, 0.8);
+    }
+  }
+}

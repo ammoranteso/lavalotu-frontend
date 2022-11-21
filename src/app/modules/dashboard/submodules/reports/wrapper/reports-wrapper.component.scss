@@ -1,0 +1,108 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.reports {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  .title {
+    padding: 50px 0 25px 0;
+    width: 850px;
+  }
+  .overall {
+    width: 850px;
+    margin-bottom: 40px;
+    @include flexbox();
+    @include justify-content(center);
+  }
+  .expenses {
+    width: 820px;
+    height: 50vh;
+    padding-bottom: 50px;
+    @include flexbox();
+  }
+}
+
+.expenses__list {
+  width: 50%;
+  margin-right: 15px;
+}
+
+.expenses__info {
+  overflow-y: auto;
+  height: 85%;
+  // https://stackoverflow.com/questions/3296644/hiding-the-scroll-bar-on-an-html-page
+  // Qué trucazo no? xd
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+//Ignore
+.expenses__graph {
+  width: 50%;
+  margin-left: 15px;
+  position: relative;
+  .graph {
+    position: absolute;
+  }
+}
+
+.overall__item {
+  @include transition(0.3s ease-in-out);
+  @include flexbox();
+  @include justify-content(space-around);
+  @include align-items(center);
+  @include flex-direction(column);
+  background-color: white;
+  padding: 10px;
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 15px;
+  cursor: pointer;
+  &__title {
+    font-family: $font-Open-Sans-Regular;
+    font-size: 12px;
+  }
+  &__value {
+    font-family: $font-Open-Sans-Bold;
+    font-size: 31px;
+  }
+  &:hover {
+    box-shadow: 0px 9px 17px #00000036;
+  }
+  &.entered {
+    &:hover {
+      background-color: $regular-blue;
+    }
+  }
+  &.delivered {
+    &:hover {
+      background-color: $cancelled-red;
+    }
+  }
+  &.late-bills {
+    &:hover {
+      background-color: $dark-yellow;
+    }
+  }
+  &.canceled-bills {
+    &:hover {
+      background-color: $cancelled-red;
+    }
+  }
+  &.partial-bills {
+    &:hover {
+      background-color: $regular-blue;
+    }
+  }
+}
+
+.btn--half {
+  width: 55%;
+  margin-bottom: 20px;
+  display: block;
+}

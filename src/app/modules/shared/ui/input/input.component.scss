@@ -1,0 +1,49 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.form__textfield {
+  width: 100%;
+  position: relative;
+}
+.input__content {
+  position: relative;
+  label {
+    position: absolute;
+    font-family: $font-Open-Sans-Regular;
+    font-size: 12px;
+    top: -50%;
+    left: 0%;
+    &.label-primary {
+      color: $input-label-grey;
+    }
+    &.label-secondary {
+      color: $light-blue;
+    }
+  }
+  input {
+    width: 100%;
+    padding: 15px 15px;
+    outline: 0;
+    border: none;
+    border-radius: 2px;
+    font-family: $font-nunito;
+    font-size: 18px;
+    @include transition(0.2s ease-out);
+    &:focus {
+      border-color: darken($provisional-grey, 25);
+    }
+    &.input-primary {
+      color: $provisional-grey;
+      background-color: white;
+    }
+    &.input-secondary {
+      color: white;
+      background-color: $regular-blue;
+    }
+  }
+}
+
+// TODO: Enable and customize this later
+.input__error {
+  display: none;
+}

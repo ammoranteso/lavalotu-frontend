@@ -1,0 +1,58 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.all-establishments {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  height: 85vh;
+  .all-establishments__create-text {
+    font-family: $font-Open-Sans-Regular;
+    font-size: 14px;
+    margin: 8% 0 3%;
+  }
+  .all-establishment__items {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 80%;
+  }
+  .all-establishment__items__item {
+    @include transition(0.3s ease-in-out);
+    @include flexbox();
+    @include align-items(center);
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    width: 140px;
+    height: 140px;
+    border-radius: 14px;
+    margin: 15px;
+    font-family: $font-Open-Sans-Bold;
+    font-size: 18px;
+    cursor: pointer;
+    .item__text {
+      position: absolute;
+      width: 0;
+      bottom: 5%;
+      left: 5%;
+      &.text--plus {
+        font-family: $font-Open-Sans-Bold;
+        font-size: 72px;
+        top: 15%;
+        left: 60%;
+      }
+    }
+    &:hover {
+      box-shadow: 0px 9px 17px #00000036;
+    }
+    &.item--create {
+      color: $darker-blue;
+    }
+    &.item--establishment {
+      background-color: $darker-blue;
+      color: white;
+    }
+  }
+}

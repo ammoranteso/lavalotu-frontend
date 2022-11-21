@@ -1,0 +1,99 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.navbar {
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  position: relative;
+  animation: fade-in 0.5s;
+  width: 100%;
+  height: 15%;
+  box-shadow: 0px 9px 21px #00000017;
+  .navbar__brand {
+    width: 15%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  .navbar__menu {
+    position: absolute;
+    right: 5%;
+    background-color: black;
+    border: none;
+    width: 50px;
+    height: 20px;
+    &:hover {
+      background-color: $provisional-grey;
+    }
+  }
+  .navbar__link {
+    cursor: pointer;
+    margin: 0 25px;
+    font-family: $font-Open-Sans-Bold;
+    letter-spacing: 0.02px;
+    font-size: 18px;
+    &:hover {
+      color: $provisional-grey;
+    }
+  }
+  .navbar__link--active {
+    margin-bottom: -2px;
+    border-bottom: 2px solid $darker-blue;
+  }
+}
+
+.menu-btn {
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  padding: 0;
+  right: 5%;
+  background-color: transparent;
+  border: none;
+  z-index: 10;
+}
+.menu-btn__burger {
+  display: flex;
+  justify-content: flex-end;
+  width: 20px;
+  height: 5px;
+  background: black;
+  transition: all 0.5s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background: black;
+    transition: all 0.5s ease;
+    transform: translateY(-9px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 5px;
+    background: black;
+    transition: all 0.5s ease;
+    transform: translateY(9px);
+  }
+}
+
+.menu-btn__open .menu-btn__burger {
+  width: 30px;
+  transition: all 0.8s ease;
+}
+.menu-btn__open .menu-btn__burger::before {
+  width: 13px;
+  transition: all 0.8s ease;
+}
+
+.menu-btn__open .menu-btn__burger::after {
+  width: 20px;
+  transition: all 0.8s ease;
+}
+
+.btn-container {
+  height: 10px;
+}

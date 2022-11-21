@@ -1,0 +1,102 @@
+$select-radius: 4px;
+
+.ngsl-select-pseudohost {
+  border: none !important;
+  border-radius: $select-radius;
+  background: white;
+  transition: 0.2s;
+}
+
+.ngsl-selection-label {
+  color: $dark-blue !important;
+  text-shadow: none !important;
+}
+::placeholder {
+  color: #c9c9c9 !important;
+}
+:-ms-input-placeholder {
+  color: #c9c9c9 !important;
+}
+
+.my-awesome-option {
+  background: white;
+  color: #888888;
+  text-align: left;
+  padding: 3px 5px;
+  transition: 0.2s;
+  // border-bottom: solid 1px gray;
+  &:hover {
+    @extend .active-option;
+  }
+}
+
+.active-option {
+  background-color: #eaeaea !important;
+  color: #888888 !important;
+}
+
+.selected-option {
+  background-color: white !important;
+  color: black !important;
+}
+
+.ngsl-select-pseudohost-on-focus {
+  box-shadow: 0px 1px 0px 0px white !important;
+}
+
+.ngsl-options-container {
+  box-shadow: 4px 5px 6px -7px #676767 !important;
+  border-bottom-left-radius: $select-radius;
+  border-bottom-right-radius: $select-radius;
+}
+
+.ngsl-overflow-wrapper {
+  border-bottom-left-radius: $select-radius;
+  border-bottom-right-radius: $select-radius;
+}
+
+.form-input__selector {
+  .ngsl-selector-wrapper {
+    padding: 4px 5px 8px 8px !important;
+  }
+}
+
+.blue-selector {
+  .ngsl-select-pseudohost {
+    border: 1px solid $dark-blue !important;
+    background: white;
+    opacity: 1;
+    &:hover {
+      background: $dark-blue;
+      ::placeholder {
+        color: white !important;
+      }
+    }
+  }
+
+  .my-awesome-option {
+    background: white;
+    border-top: solid 1px rgb(230, 230, 230);
+  }
+
+  .ngsl-selection-label {
+    font-weight: bold;
+    color: white;
+  }
+
+  .container-today__select__icon {
+    color: $dark-blue;
+  }
+
+  .ngsl-selection-label {
+    color: $dark-blue !important;
+    text-shadow: none !important;
+  }
+
+  ::placeholder {
+    color: $dark-blue !important;
+  }
+  :-ms-input-placeholder {
+    color: $dark-blue !important;
+  }
+}

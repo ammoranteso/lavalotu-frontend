@@ -1,0 +1,33 @@
+<app-loading-spinner></app-loading-spinner>
+<div class="all-establishments">
+  <ng-container *ngIf="allEstablishments$ | async as establishments">
+    <span
+      class="all-establishments__create-text"
+      *ngIf="!(establishments.payload!.length > 0)"
+      >Para empezar debes crear y registrar tu lavandería</span
+    >
+    <span
+      class="all-establishments__create-text"
+      *ngIf="establishments.payload!.length > 0"
+      >Selecciona una lavandería para empezar</span
+    >
+  </ng-container>
+  <div class="all-establishment__items">
+    <ng-container *ngIf="allEstablishments$ | async as establishments">
+      <div
+        class="all-establishment__items__item item--establishment"
+        *ngFor="let establishment of establishments.payload; let i = index"
+        (click)="selectEstablishmentId(establishment.id)"
+      >
+        {{ establishment.establishmentName }}
+      </div>
+    </ng-container>
+    <div
+      class="all-establishment__items__item item--create"
+      routerLink="/dashboard/configuration/create"
+    >
+      <span class="item__text">Crear nueva lavandería</span>
+      <span class="item__text text--plus">+</span>
+    </div>
+  </div>
+</div>

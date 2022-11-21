@@ -1,0 +1,41 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.content {
+  .content__materials {
+    width: 100%;
+    .materials__name {
+      @include flexbox();
+      @include justify-content(center);
+      @include flex-direction(column);
+      width: 120px;
+      height: 40px;
+      text-align: center;
+      margin: 0 5px 5px;
+      border: $light-grey solid 1px;
+      border-radius: 2px;
+      font-family: $font-Open-Sans-Regular;
+    }
+    .content__row {
+      width: 100%;
+      display: flex;
+    }
+  }
+}
+
+button {
+  width: 130px;
+  padding: 0;
+  margin: 10px 5px 0 5px;
+  height: 40px;
+  background-color: white;
+  border: $light_blue solid 1px;
+  border-radius: 2px;
+  font-family: $font-Open-Sans-Bold;
+  color: $light_blue;
+  cursor: pointer;
+  &:hover {
+    border: darken($light_blue, 20) solid 1px;
+    color: darken($light_blue, 20);
+  }
+}

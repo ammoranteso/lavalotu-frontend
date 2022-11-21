@@ -1,0 +1,48 @@
+<div class="reports">
+  <div class="title"></div>
+  <div class="overall">
+    <div class="overall__item entered">
+      <span class="overall__item__title">Prendas ingresadas</span>
+      <span class="overall__item__value">1245</span>
+    </div>
+    <div class="overall__item delivered">
+      <span class="overall__item__title">Prendas entregadas</span>
+      <span class="overall__item__value">1245</span>
+    </div>
+    <div class="overall__item late-bills">
+      <span class="overall__item__title">Facturas con 3 meses</span>
+      <span class="overall__item__value">1245</span>
+    </div>
+    <div class="overall__item canceled-bills">
+      <span class="overall__item__title">Facturas anuladas</span>
+      <span class="overall__item__value">1245</span>
+    </div>
+    <div class="overall__item partial-bills">
+      <span class="overall__item__title">Pagos parciales</span>
+      <span class="overall__item__value">1245</span>
+    </div>
+  </div>
+  <div class="expenses">
+    <div class="expenses__list">
+      <span class="expenses__title">Gastos</span>
+      <button
+        (click)="showCreateModal()"
+        class="btn-general btn--primary btn--half"
+      >
+        Agregar gasto
+      </button>
+      <div
+        class="expenses__info"
+        *ngslAsyncHandler="expenses$ | async as expenses"
+      >
+        <ng-container *ngFor="let expense of expenses.payload">
+          <app-expense-row [expense]="expense"></app-expense-row>
+        </ng-container>
+      </div>
+    </div>
+    <div class="expenses__graph">
+      <div class="graph">Aquí va un gráfico xd</div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

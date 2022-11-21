@@ -1,0 +1,28 @@
+<div class="box-list hlp__flex">
+
+  <!-- <div class="label-contain__user hlp__flex">
+    <span
+      class="label-user hlp__flex"
+      for>
+      {{ title }}
+    </span>
+  </div> -->
+
+  <div
+    class="label-contain__user hlp__flex"
+    *ngFor="let infoItem of info | keyvalue: originalOrder">
+    <span
+      class="label-booking hlp__flex"
+      *ngIf="!hideKeys">
+      {{ infoItem.key }}
+    </span>
+    <span class="data__booking hlp__flex">
+      {{ infoItem.value }}
+    </span>
+  </div>
+
+  <div class="buttons">
+    <ng-content></ng-content>
+  </div>
+
+</div>

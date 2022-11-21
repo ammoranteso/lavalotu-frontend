@@ -1,0 +1,149 @@
+<div class="services__container">
+  <ng-template #loadingTemplate> Some data it's being fetched </ng-template>
+
+  <ng-template #errorTemplate> Something wrong happened </ng-template>
+  <section *ngIf="!completedSection1">
+    <h1 class="section__title">Servicios</h1>
+    <div class="section__content">
+      <div
+        class="content__filter"
+        *ngslAsyncHandler="
+          allServices$ | async as services;
+          useLoading: loadingTemplate;
+          useError: errorTemplate
+        "
+      >
+        <label class="section__item" *ngFor="let service of services.payload"
+          ><input
+            (change)="addItemToArray(service, selectedServices)"
+            value="{{ service.name }}"
+            type="checkbox"
+            [checked]="selectedServices.indexOf(service) !== -1"
+          />{{ service.name }}</label
+        >
+      </div>
+    </div>
+    <h1 class="section__title">Tipos de prendas</h1>
+
+    <div class="section__content">
+      <div
+        class="content__filter"
+        *ngslAsyncHandler="
+          clothes$ | async as ropa;
+          useLoading: loadingTemplate;
+          useError: errorTemplate
+        "
+      >
+        <span class="filter__title">(dibujito) Ropa</span>
+        <label class="section__item" *ngFor="let item of ropa.payload"
+          ><input
+            (change)="addItemToArray(item, selectedClothes)"
+            value="{{ item }}"
+            type="checkbox"
+            [checked]="selectedClothes.indexOf(item) !== -1"
+          />{{ item.name }}</label
+        >
+      </div>
+      <div class="content__separator"></div>
+      <div
+        class="content__filter"
+        *ngslAsyncHandler="
+          home$ | async as home;
+          useLoading: loadingTemplate;
+          useError: errorTemplate
+        "
+      >
+        <span class="filter__title">(dibujito) Hogar</span>
+        <label class="section__item" *ngFor="let item of home.payload"
+          ><input
+            (change)="addItemToArray(item, selectedClothes)"
+            value="{{ item.name }}"
+            type="checkbox"
+            [checked]="selectedClothes.indexOf(item) !== -1"
+          />{{ item.name }}</label
+        >
+      </div>
+
+      <div class="content__separator"></div>
+      <div
+        class="content__filter"
+        *ngslAsyncHandler="
+          shoes$ | async as shoes;
+          useLoading: loadingTemplate;
+          useError: errorTemplate
+        "
+      >
+        <span class="filter__title">(dibujito) Calzado</span>
+        <label class="section__item" *ngFor="let item of shoes.payload"
+          ><input
+            (change)="addItemToArray(item, selectedClothes)"
+            value="{{ item.name }}"
+            type="checkbox"
+            [checked]="selectedClothes.indexOf(item) !== -1"
+          />{{ item.name }}</label
+        >
+      </div>
+
+      <div class="content__separator"></div>
+      <div
+        class="content__filter"
+        *ngslAsyncHandler="
+          others$ | async as others;
+          useLoading: loadingTemplate;
+          useError: errorTemplate
+        "
+      >
+        <span class="filter__title">(dibujito) Otros</span>
+        <label class="section__item" *ngFor="let item of others.payload"
+          ><input
+            (change)="addItemToArray(item, selectedClothes)"
+            value="{{ item.name }}"
+            type="checkbox"
+            [checked]="selectedClothes.indexOf(item) !== -1"
+          />{{ item.name }}</label
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+
+  <section *ngIf="completedSection1">
+    <h1 class="section__title">Lista de materiales y servicios</h1>
+    <div class="section__content table">
+      <app-input-services-table
+        [selectedClothes]="selectedClothes"
+        [selectedServices]="selectedServices"
+        (pricesMiniArray)="outputData($event)"
+      >
+      </app-input-services-table>
+    </div>
+  </section>
+  <div class="services__actions">
+    <button
+      class="actions__button"
+      *ngIf="!completedSection1"
+      (click)="setCompletedSection1()"
+    >
+      Siguiente
+    </button>
+
+    <button
+      class="actions__button actions__button--secondary"
+      *ngIf="completedSection1"
+      (click)="setCompletedSection1()"
+    >
+      Retroceder
+    </button>
+
+    <div *ngIf="completedSection1" class="actions__separator"></div>
+
+    <button
+      class="actions__button"
+      *ngIf="completedSection1"
+      (click)="postData(pricesData)"
+    >
+      Confirmar
+    </button>
+  </div>
+</div>

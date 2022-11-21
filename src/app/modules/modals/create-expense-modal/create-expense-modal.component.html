@@ -1,0 +1,33 @@
+<form
+  class="modal"
+  [formGroup]="createExpenseForm"
+  (ngSubmit)="confirmExpense()"
+>
+  <div class="modal__inputs">
+    <app-form-control
+      label="Nombre gasto"
+      [inputStyle]="{ width: '250px', marginRight: '30px', display: 'block' }"
+      [labelStyle]="{ color: 'white' }"
+      [fControl]="createExpenseForm.get('name')!"
+    >
+    </app-form-control>
+
+    <app-form-control
+      label="Monto gastado"
+      type="number"
+      [labelStyle]="{ color: 'white' }"
+      [inputStyle]="{ width: '250px', display: 'block' }"
+      [fControl]="createExpenseForm.get('value')!"
+    >
+    </app-form-control>
+  </div>
+  <div class="modal__actions">
+    <button
+      class="btn-general btn--primary"
+      type="submit"
+      [disabled]="!createExpenseForm.valid"
+    >
+      Aceptar
+    </button>
+  </div>
+</form>

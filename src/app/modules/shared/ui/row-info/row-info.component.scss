@@ -1,0 +1,34 @@
+@import "__settings-dir";
+@import "__tools-dir";
+
+.box-list {
+  justify-content: space-around;
+  margin: 4px 0;
+  padding: 16px 13px;
+  background: white;
+  color: black;
+}
+
+.label-contain__user {
+  width: 100%;
+  padding-left: 10px;
+  &:first-child {
+    padding: 0;
+  }
+}
+
+.label-user {
+  align-items: center;
+  font-weight: 600;
+  color: black;
+}
+
+.label-data {
+  @extend .label-user;
+  font-weight: 400;
+}
+
+.data__booking {
+  align-items: center;
+  color: black;
+}

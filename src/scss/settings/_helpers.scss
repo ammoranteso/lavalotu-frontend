@@ -1,0 +1,32 @@
+@import "../tools/mixins";
+
+.hlp__image-cover {
+  @include squared(100%);
+  object-fit: cover;
+}
+
+.hlp__image-contain {
+  @include squared(100%);
+  object-fit: contain;
+}
+
+.hlp__flex {
+  display: flex;
+}
+
+.hlp__flex-h-center {
+  display: flex;
+  justify-content: center;
+}
+
+.hlp__align-center {
+  text-align: center;
+}
+
+.hlp__pos-relative {
+  position: relative;
+}
+
+.hlp_scroll::-webkit-scrollbar {
+  display: none;
+}

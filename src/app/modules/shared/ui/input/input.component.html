@@ -1,0 +1,21 @@
+<div class="form__textfield">
+  <div class="input__content">
+    <input
+      [type]="type"
+      [class.input-primary]="color === 'primary'"
+      [class.input-secondary]="color === 'secondary'"
+      [autocomplete]="autocomplete"
+      [formControl]="fControl"
+      [class.is-invalid]="controlHasError"
+      [placeholder]="placeholder"
+    />
+    <label
+      [class.label-primary]="color === 'primary'"
+      [class.label-secondary]="color === 'secondary'"
+      >{{ label }}</label
+    >
+  </div>
+  <div class="input__error">
+    <span class="error">{{ controlErrorMessage }}</span>
+  </div>
+</div>
